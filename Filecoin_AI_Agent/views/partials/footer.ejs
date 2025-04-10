@@ -1,0 +1,15 @@
+<!-- ✅ Load ethers from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+<script>
+  if (typeof window.ethers === 'undefined' && typeof ethers !== 'undefined') {
+    window.ethers = ethers;
+    console.log('[FOOTER] ✅ ethers.js (CDN) attached to window');
+  }
+</script>
+
+<!-- ✅ Your app logic -->
+<script src="/js/wallet.js"></script>
+<script src="/js/agent.js"></script>
+
+
+
