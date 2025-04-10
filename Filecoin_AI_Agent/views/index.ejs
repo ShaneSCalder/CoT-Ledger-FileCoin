@@ -1,0 +1,109 @@
+<%- include('partials/header') %>
+
+<main style="background: #f8f9fa; min-height: 100vh; padding: 40px 0; display: flex; align-items: flex-start; justify-content: center;">
+  <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); max-width: 840px; width: 100%; padding: 30px;">
+
+    <h1 class="title" style="margin-top: 0;">🛰️ Filecoin AI Upload Agent</h1>
+    <p class="subtitle" style="margin-bottom: 20px;">A guided assistant to upload, summarize, compile, and deploy metadata to the Filecoin testnet.</p>
+
+    <!-- AI Agent Output -->
+    <div id="agentOutput" class="chat-box" style="margin-bottom: 20px;"></div>
+
+    <!-- Prompt Input -->
+    <div class="input-box" style="margin-bottom: 20px;">
+      <input type="text" id="userInput" placeholder="Type something like: I want to upload data to Filecoin" />
+      <button id="sendInput">💬 Send</button>
+    </div>
+
+    <!-- Upload Section -->
+    <div id="uploadSection" class="step-section" style="display: none; margin-bottom: 20px;">
+      <label for="jsonFile">📁 Choose your JSON file:</label><br>
+      <input type="file" id="jsonFile" accept=".json" />
+    </div>
+
+    <!-- Summary Output -->
+    <div id="summarySection" class="step-section" style="display: none; margin-bottom: 20px;">
+      <h3>🧠 AI Summary</h3>
+      <pre id="summaryOutput"></pre>
+    </div>
+
+    <!-- Wallet Connect -->
+    <div id="walletSection" class="step-section" style="display: none; margin-bottom: 20px;">
+      <button id="connectWallet" onclick="connectWallet()">🔐 Connect Wallet</button>
+    </div>
+
+    <!-- Contract Preview Section -->
+    <div id="contractPreviewSection" class="step-section" style="display: none; margin-bottom: 20px;">
+      <h3>📜 AI-Generated Smart Contract</h3>
+      <textarea id="contractSourcePreview" readonly style="width: 100%; height: 300px; font-family: monospace;"></textarea>
+
+      <div style="margin-top: 10px;">
+        <button id="compileContractButton">🛠 Compile Contract</button>
+        <button id="deployContractButton" style="display: none;">🚀 Deploy Contract</button>
+      </div>
+
+      <div id="compileStatus" class="status-box" style="margin-top: 15px; display: none;">
+        <p id="compileStatusText" style="font-weight: bold; color: #444;"></p>
+      </div>
+    </div>
+
+    <!-- Optional: Verification Prompt -->
+    <div id="verifyContractSection" class="step-section" style="display: none; margin-bottom: 20px;">
+      <label for="contractAddressInput">Paste your deployed contract address:</label><br>
+      <input type="text" id="contractAddressInput" placeholder="0x..." style="width: 300px;" />
+      <button id="verifyContractButton">✅ Verify Contract</button>
+    </div>
+
+    <!-- Metadata Summary + Download -->
+    <div id="metadataOutputSection" class="step-section" style="display: none; margin-bottom: 20px;">
+      <div style="border: 1px solid #ddd; border-radius: 10px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px;">
+        <h3 style="margin-top: 0;">🧾 Metadata Summary</h3>
+
+        <pre id="metadataJsonOutput" style="background: #f9f9f9; padding: 12px; border-radius: 6px; font-size: 14px; max-height: 300px; overflow-y: auto; border: 1px solid #ccc;"></pre>
+
+        <div style="text-align: right; margin-top: 10px;">
+          <a id="downloadMetadataButton" style="background: #0070f3; color: white; padding: 8px 14px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none;">
+            📥 Download metadata.json
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Output -->
+    <div id="resultBox" class="result-box" style="display: none; margin-top: 20px;">
+      <h3>🎉 Upload Complete</h3>
+
+      <div class="output-group">
+        <strong>📬 Transaction Hash:</strong>
+        <pre id="txHashOutput"></pre>
+      </div>
+
+      <div class="output-group">
+        <strong>📄 Deployed Contract Address:</strong>
+        <pre id="contractAddressOutput"></pre>
+      </div>
+
+      <div class="output-group">
+        <strong>📦 CID:</strong>
+        <pre id="cidOutput"></pre>
+      </div>
+
+      <div class="output-group">
+        <strong>🧾 Metadata Hash:</strong>
+        <pre id="metadataHashOutput"></pre>
+      </div>
+
+      <button onclick="location.reload()">🔁 Start Over</button>
+    </div>
+
+    <!-- Debug Log Panel -->
+    <div id="remixLogPanel" class="step-section" style="display: none; margin-top: 20px;">
+      <h3>📋 Debug Logs</h3>
+      <pre id="remixLogOutput" style="background: #f9f9f9; height: 150px; overflow-y: scroll;"></pre>
+    </div>
+
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+
