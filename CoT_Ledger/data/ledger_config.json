@@ -1,0 +1,120 @@
+{
+    "ledger_id": "settlement_ledger",
+    "block_size": 10,
+    "block_timeout": 0,
+    "created_at": "",
+    "fields": {
+      "transaction_id": "",
+      "timestamp": "",
+      "network": "",
+      "transaction_type": ""
+    },
+    "sections": {
+      "part_a": {
+        "transaction_id": "",
+        "timestamp": "",
+        "network": "",
+        "transaction_type": "",
+        "sender": {
+          "wallet_address": "",
+          "iban_hash": "",
+          "swift_bic": "",
+          "bank_name": "",
+          "country": "",
+          "currency": "",
+          "balance_before": "",
+          "balance_after": ""
+        },
+        "recipient": {
+          "wallet_address": "",
+          "iban_hash": "",
+          "swift_bic": "",
+          "bank_name": "",
+          "country": "",
+          "currency": ""
+        },
+        "pool_wallet": "",
+        "amount": {
+          "value": "",
+          "currency": "",
+          "converted_value": "",
+          "converted_currency": "",
+          "exchange_rate": ""
+        },
+        "fees": {
+          "total": "",
+          "currency": "",
+          "breakdown": {
+            "bank_fee": "",
+            "intermediary_fee": "",
+            "recipient_bank_fee": ""
+          }
+        },
+        "reference": "",
+        "transaction_status": "",
+        "validated": false
+      },
+  
+      "part_b": {
+        "transaction_hash": "",
+        "ledger_index": "",
+        "timestamp": "",
+        "network": "",
+        "transaction_type": "",
+        "sender": {
+          "wallet_address": "",
+          "address": "",
+          "sequence_number": "",
+          "balance_before": "",
+          "balance_after": ""
+        },
+        "recipient": {
+          "wallet_address": "",
+          "address": "",
+          "destination_tag": ""
+        },
+        "pool_wallet": "",
+        "amount": {
+          "value": "",
+          "drops": ""
+        },
+        "fee": {
+          "value": "",
+          "drops": ""
+        },
+        "transaction_result": "",
+        "memos": [],
+        "validated": false
+      },
+  
+      "part_c": {
+        "timestamp": "",
+        "network": "",
+        "transaction_type": "Fee Distribution",
+        "distribution": [
+          {
+            "payee_wallet": "",
+            "pool_wallet": "",
+            "royalty_wallet": "",
+            "amount": {
+              "value": "",
+              "currency": "",
+              "crypto_value": "",
+              "drops": ""
+            },
+            "purpose": ""
+          }
+        ],
+        "total_fees": {
+          "value": "",
+          "currency": "",
+          "crypto_value": "",
+          "drops": ""
+        },
+        "transaction_hash": "",
+        "status": "",
+        "validated": false
+      }
+    },
+    "blocks": []
+  }
